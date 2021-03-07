@@ -1,11 +1,22 @@
 import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+
+function Title() {
+  return <h1>HEHEHE</h1>;
+}
+
+function Header() {
+  return (
+    <header>
+      <Title>HELLO CARAIO</Title>
+    </header>
+  );
+}
 
 function App() {
   const [counter, setCounter] = useState(0);
   return (
     <div className="App">
+      <Header />
       <div className="button-container">
         <button
           className="decrement-button"
@@ -20,6 +31,9 @@ function App() {
         >
           +
         </button>
+        <component>
+          <element getFocused={() => {}} />
+        </component>
       </div>
     </div>
   );

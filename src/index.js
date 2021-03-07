@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+// import ReactDOM from 'react-dom';
+import { MyCustomRenderer } from "./myCustomRenderer";
+// import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import lng from "@lightningjs/core";
+
+// console.log(app.stage.getCanvas());
+
+function Logo() {
+  return <element x={960} y={540} mount={0.5} text={{ text: "Loading..." }} />;
+}
+
+function Header() {
+  return (
+    <element>
+      <Logo />
+    </element>
+  );
+}
+function App() {
+  return (
+    <app rect color={0xff000000} w={1920} h={1080}>
+      <Header />
+    </app>
+  );
+}
+
+App.prototype = Object.create(lng.Application);
+
+// const app = new App();
+
+MyCustomRenderer.render(
+  new App(),
+
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+
+  document.body
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
